@@ -1,0 +1,34 @@
+vector_store:
+  provider: "qdrant"
+  config:
+    url: ${QDRANT_URL}
+    api_key: ${QDRANT_API_KEY}
+
+llm:
+  provider: "openai"
+  config:
+    api_key: ${OPENAI_API_KEY}
+    model: ${GPT_MODEL}
+
+embedder:
+  provider: "openai"
+  config:
+    api_key: ${OPENAI_API_KEY}
+    model: ${EMBEDDING_MODEL}
+
+reranker:
+  provider: "zero_entropy"
+  config:
+    model: "zerank-2"
+    api_key: "ze_eEantxQjM4v6zggE"
+    top_k: 5
+
+graph_store:
+  provider: "neo4j"
+  config:
+    "url": "bolt://172.16.10.128:7687"
+    "username": ${N4-U}
+    "password": ${N4-P}
+    "embedding_model_dims": 1536
+
+"history_db_path": ${HISTORY_DB_PATH}
